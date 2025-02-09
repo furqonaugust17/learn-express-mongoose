@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Product</title>
+  </head>
+  <body>
+    <h1>Edit Product <%= product.name %></h1>
+
+    <form action="/products/<%= product._id %>?_method=PUT" method="post">
+      <label for="name">Nama Produk</label>
+      <input type="text" name="name" id="name" value="<%= product.name %>" />
+      <label for="brand">Brand</label>
+      <input type="text" name="brand" id="brand" value="<%= product.brand %>" />
+      <label for="color">Warna</label>
+      <input type="text" name="color" id="color" value="<%= product.color %>" />
+      <label for="price">Harga</label>
+      <input
+        type="number"
+        name="price"
+        id="price"
+        value="<%= product.price %>"
+      />
+      <label for="category">Kategori</label>
+      <select name="category" id="category">
+        <option <%= product.category == 'Aksesoris' ? 'selected' : '' %> value="Aksesoris">Aksesoris</option>
+        <option <%= product.category == 'Baju' ? 'selected' : '' %> value="Baju">Baju</option>
+        <option <%= product.category == 'Celana' ? 'selected' : '' %> value="Celana">Celana</option>
+        <option <%= product.category == 'Jaket' ? 'selected' : '' %> value="Jaket">Jaket</option>
+        <option <%= product.category == 'Topi' ? 'selected' : '' %> value="Topi">Topi</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
